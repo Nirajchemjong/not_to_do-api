@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
-const taskRouter = require("./src/router/taskRouter");
+const taskRouter = require("./src/router/taskRouter"); //Routers
+const mongoConnect = require("./src/config/mongoDb");
 const app = express();
 
 //Basic middleware
@@ -14,10 +15,12 @@ app.get("/healthy", (req, res) => {
 
 Building ApI 
 
-
+API Resource
 */
 
-app.use("/api/v1/task", taskRouter);
+app.use("/api/v1/task", taskRouter); //taskResource \
+
+require(mongoConnect); //connection to mongodb
 
 const PORT = process.env.PORT || 2005;
 app.listen(PORT, () => {
