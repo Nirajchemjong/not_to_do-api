@@ -1,34 +1,18 @@
 const { Router } = require("express");
+const taskController = require("../controllers/taskController");
 
 const router = Router();
 
 //GET
-router.get("/", (req, res) => {
-  res.json({ status: "Success", message: "Get Call" });
-});
+router.get("/", taskController.getAllTasks);
 
 //Create POST
-router.post("/", (req, res) => {
-  const { body } = req;
-
-  console.log("body", body);
-  res.json({ status: "success", message: "POST Call" });
-});
+router.post("/", taskController.createTasks);
 
 //Created UPDATE
-router.patch("/:id", (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  console.log("id", id);
-  console.log("body", body);
-  res.json({ status: "Sucess", message: "PATCH Call" });
-});
+router.patch("/:id", taskController.updateTasks);
 
 //DELETE
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  console.log("id", id);
-  res.json({ Status: " success", message: "DELETE Call" });
-});
+router.delete("/:id", taskController.deleteTasks);
 
 module.exports = router;

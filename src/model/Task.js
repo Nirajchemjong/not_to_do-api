@@ -5,7 +5,7 @@ const taskScheme = new mongoose.Schema({
     type: String,
     required: true,
   },
-  hr: {
+  hrs: {
     type: String,
     required: true,
   },
