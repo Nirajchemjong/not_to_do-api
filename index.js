@@ -1,15 +1,15 @@
 const express = require("express");
-
+require("dotenv").config();
 const app = express();
 
 //Basic middleware
 app.use(express.json());
 
-app.get("/health", (req, res) => {
+app.get("/healthy", (req, res) => {
   res.json({ status: "Healthy" });
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 2005;
 app.listen(PORT, () => {
-  "Server is ruuning at " + { PORT };
+  console.log("Server is runing at " + PORT);
 });
