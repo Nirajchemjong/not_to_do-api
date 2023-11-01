@@ -1,17 +1,21 @@
 const mongoose = require("mongoose");
 
 const taskScheme = new mongoose.Schema({
-  title: {
+  id: {
     type: String,
     required: true,
   },
-  hrs: {
+  task: {
+    type: String,
+    required: true,
+  },
+  hr: {
     type: String,
     required: true,
   },
   type: {
     type: String,
-    default: "good",
+    default: "entry",
   },
 });
 
