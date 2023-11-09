@@ -2,11 +2,12 @@ const express = require("express");
 require("dotenv").config();
 const taskRouter = require("./src/router/taskRouter"); //Routers
 const dbConnect = require("./src/config/mongoDb"); //importing mongodb connectionc
+const cors = require("cors");
 const app = express();
 
 //Basic middleware
 app.use(express.json());
-
+app.use(cors());
 app.get("/healthy", (req, res) => {
   res.json({ status: "Healthy" });
 });

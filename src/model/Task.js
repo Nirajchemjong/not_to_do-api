@@ -3,13 +3,12 @@ const mongoose = require("mongoose");
 const taskScheme = new mongoose.Schema({
   id: {
     type: String,
-    required: true,
   },
   task: {
     type: String,
     required: true,
   },
-  hr: {
+  hrs: {
     type: String,
     required: true,
   },
